@@ -18,7 +18,7 @@
     <h1>Survey Questions</h1>
     <hr>
     <h2><b>About You</b></h2>
-    <form>
+    <form id="survey">
         <!--Name and photo-->
         <div class="form-group">
             <label for="name">Name (Required)</label><br>
@@ -169,13 +169,14 @@
 
     <!--handle form inputs-->
     <script type="text/javascript">
-        $("#submit").on("submit", function (event) {
+        $("#survey").on("submit", function (event) {
             event.preventDefault();
             //put all answers into an array
             let array = [];
             for (let i = 1; i <= 10; i++) {
                 array.push($('#q' + i).val())
             }
+            console.log(array)
             //create a newFriend object with the info given
             var newFriend = {
                 "name": $("#name").val().trim(),
@@ -183,14 +184,15 @@
                 "scores": array
             }
 
-            $.post("/api/friends", newFriend, function (result) {
-                if (result) {
-                    alert("hfjdhf")
-                }
+            $.post("/api/friends", newFriend, function (person) {
+                    alert("Your best match is " + person[1] + "total difference " + person[0])
+                    //clear form 
+                    $("#name").val("");
+                    $("#photo").val("");
+                    $(".custom-select").val("Select an Option")
+                
                 //clear form 
-                // $("#name").val("");
-                // $("#photo").val("");
-                // $(".custom-select").val("Select an Option")
+
             })
         })
     </script>
