@@ -8,7 +8,8 @@ module.exports = (app) => {
     })
     app.post("/api/friends", (req, res) => {
         //handle incoming survey results
-        console.log(req.body)
+        //console.log(req.body)
         friends.push(req.body);
+        res.json(true);
     })
 }
