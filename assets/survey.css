@@ -24,3 +24,10 @@ h1 {
 hr {
     border-color: white;
 }
+.modal-content {
+    color: black;
+    text-align: center;
+}
+.modal-header {
+    padding-left: 38%
+}
