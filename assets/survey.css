@@ -31,3 +31,10 @@ hr {
 .modal-header {
     padding-left: 38%
 }
+.api-link {
+    float: left;
+    color: white;
+}
+.api-link:hover {
+    color: yellow;
+}
